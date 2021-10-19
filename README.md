@@ -8,9 +8,10 @@ The JavaScript capstone project (remember what they are?) is about building your
 ## Things done so far:
 
 ### **Student A**
-
+Chuanqi Zhu
 
 ### **Student B**
+Alexander Mayowa
 
 
 ## Built With
