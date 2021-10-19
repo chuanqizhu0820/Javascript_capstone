@@ -1,6 +1,6 @@
 import './style.css';
 
-let appId = "K5LEyqREMBDZLL96ZFuw"
+let appId = "K5LEyqREMBDZLL96ZFuw";
 
 const addLike = async (item_id) => {
 
