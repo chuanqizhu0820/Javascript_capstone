@@ -1,0 +1,13 @@
+.heart-icon:hover {
+    cursor: pointer;
+}
+
+#items {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.item-img img {
+    width: 100%;
+    height: auto;
+}
