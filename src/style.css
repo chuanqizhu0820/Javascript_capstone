@@ -15,3 +15,11 @@
 .item-like:hover {
     cursor: pointer;
 }
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: grey;
+}
