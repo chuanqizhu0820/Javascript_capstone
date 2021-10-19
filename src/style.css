@@ -11,3 +11,7 @@
     width: 100%;
     height: auto;
 }
+
+.item-like:hover {
+    cursor: pointer;
+}
