@@ -83,7 +83,7 @@ const getFood = async () => {
         itemArr.forEach(item => {
             itemHtml +=
                 `
-                <div class="col-4">
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
                 <div class="row">
                 <div class="col-12 item-img">
                 <img src=${item.strMealThumb} alt="item image">
@@ -91,12 +91,14 @@ const getFood = async () => {
                 <div class="col-12 text-center">
                 <p>${item.strMeal}</p>
                 </div>
-                <div class="col-6 item-like">
+                <div class="col-12 d-flex flex-row justify-content-between">
+                <div class="item-like">
                 <img id="${item.idMeal}" src="https://img.icons8.com/material-outlined/24/000000/like--v2.png" />
                 <span>likes</span>
                 </div>
-                <div class="col-6 text-left">
-                <button type="button">Comment</button>
+                <div>
+                <button type="button" class="btn btn-outline-secondary btn-sm">Comment</button>
+                </div>
                 </div>
                 </div>
                 </div>`;
