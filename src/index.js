@@ -1,4 +1,10 @@
 import './style.css';
+import Logo from './dragon.jpeg';
+
+const myLogo = new Image();
+myLogo.src = Logo;
+const logoDiv = document.querySelector('#logo-div');
+logoDiv.appendChild(myLogo);
 
 let appId = "K5LEyqREMBDZLL96ZFuw";
 
@@ -67,12 +73,12 @@ const loadLike = (id, node) => {
         });
 }
 
-
-
 const getFood = async () => {
     const response = await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese");
     response.json().then((json) => {
         let itemArr = json.meals;
+        const dishNum = document.querySelector("#dish-num");
+        dishNum.textContent = `Dishes (${itemArr.length})`
         let itemHtml = '';
         itemArr.forEach(item => {
             itemHtml +=
