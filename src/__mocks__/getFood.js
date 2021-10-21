@@ -1,5 +1,3 @@
-const getFood = (foodArr) => {
-    return foodArr.length;
-}
+const getFood = (foodArr) => foodArr.length;
 
 module.exports = getFood;

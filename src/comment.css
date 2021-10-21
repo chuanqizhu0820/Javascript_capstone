@@ -1,6 +1,5 @@
 .container {
   padding: 20px;
-
 }
 
 .display {
@@ -30,14 +29,14 @@
   margin: 30px;
 }
 
-.img-comment img{
+.img-comment img {
   height: 300px;
   width: 300px;
   border-radius: 50%;
 }
 
 .exit {
-cursor: pointer;
+  cursor: pointer;
 }
 
 .item-info {
@@ -53,7 +52,7 @@ cursor: pointer;
 }
 
 .item-info a:hover {
- font-size: 23px;
+  font-size: 23px;
 }
 
 h4 {
@@ -79,6 +78,6 @@ input {
 }
 
 .submit-btn {
- background-color: white;
- border: none;
+  background-color: white;
+  border: none;
 }

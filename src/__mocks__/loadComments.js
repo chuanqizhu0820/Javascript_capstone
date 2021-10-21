@@ -1,5 +1,3 @@
-const loadComments = (itemArr) => {
-    return itemArr.length;
-}
+const loadComments = (itemArr) => itemArr.length;
 
 module.exports = loadComments;
