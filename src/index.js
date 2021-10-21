@@ -1,4 +1,5 @@
 import './style.css';
+import './comment.css'
 import Logo from './dragon.jpeg';
 
 const myLogo = new Image();
@@ -105,25 +106,30 @@ const loadPopupCommentPage = (itemId, popupNode) => {
         .then(json => {
             let meal = json.meals[0];
             let popupHtml = `
-                <div id="img-comment">
+            <div class="container">
+            <i class="fas fa-times fa-2x" id="go-back"></i>
+                <div id="img-comment" class="img-comment">
                 <img src="${meal.strMealThumb}" alt="meal-img">
                 <h5>${meal.strMeal}</h5>
                 </div>
-                <div id="info-item-comment">
-                <a href=${meal.strSource} target="_blank">See more about this meal</a>
+                <div id="info-item-comment" class="item-info">
+                <a href=${meal.strSource} target="_blank">See more about this meal <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div id="comments"></div>
-                <div id="form-comment">
+
+                <h4>Comments By previous Visitors</h4>
+                <div id="comments" class="comments"></div>
+                <div id="form-comment" class="form-comment">
                 <form id="comment-form">
                 <div class="form-group mb-3">
-                <input type="text" class="form-control" id="your-name" name="name" placeholder="Your name">
+                <input type="text" class="form-control" id="your-name" name="name" placeholder="Your name" required>
                 </div>
                 <div class="form-group mb-3">
-                <textarea class="form-control" id="your-comments" name="comment" placeholder="Your comment"></textarea>
+                <textarea class="form-control" id="your-comments" name="comment" placeholder="Your comment" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-outline-secondary">Comment</button>
+                <button type="submit" class="btn btn-outline-secondary submit-btn">Comment</button>
                 </form>
-                <button type="submit" class="btn btn-outline-secondary btn-sm" id="go-back">Go back to menu</button>
+
+                </div>
                 </div>
                 `;
             popupNode.innerHTML = popupHtml;
@@ -144,16 +150,16 @@ const loadPopupCommentPage = (itemId, popupNode) => {
             })
 
             const header = document.querySelector("header");
-            const main = document.querySelector("main");
+            const main = document.querySelector(".row");
             const footer = document.querySelector("footer");
             const popupComment = document.querySelector("#popup-comment");
 
             const goBack = document.querySelector("#go-back");
             goBack.addEventListener("click", () => {
                 popupNode.innerHTML = "";
-                header.style.display = "block";
-                main.style.display = "block";
-                footer.style.display = "block";
+                header.style.filter = "none";
+                main.style.filter = "none";
+                footer.style.filter = "none";
                 popupComment.style.display = "none";
                 const aToItem = document.createElement('a');
                 aToItem.href = `#${itemId}img`;
@@ -209,7 +215,7 @@ const getFood = async () => {
         });
 
         const header = document.querySelector("header");
-        const main = document.querySelector("main");
+        const main = document.querySelector(".row");
         const footer = document.querySelector("footer");
         const popupComment = document.querySelector("#popup-comment");
         const commentBtn = document.querySelectorAll(".comment-btn");
@@ -217,9 +223,9 @@ const getFood = async () => {
         commentBtn.forEach((item) => {
             item.addEventListener("click", () => {
 
-                header.style.display = "none";
-                main.style.display = "none";
-                footer.style.display = "none";
+                header.style.filter = "blur(4px)";
+                main.style.filter = "blur(4px)";
+                footer.style.filter = "blur(4px)";
                 popupComment.style.display = "block";
 
                 const itemId = item.parentNode.parentNode.querySelector("img").id;
