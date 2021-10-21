@@ -1,11 +1,5 @@
 import './style.css';
 import './comment.css';
-import Logo from './dragon.jpeg';
-
-const myLogo = new Image();
-myLogo.src = Logo;
-const logoDiv = document.querySelector('#logo-div');
-logoDiv.appendChild(myLogo);
 
 const baseUri = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 const appId = 'K5LEyqREMBDZLL96ZFuw';
@@ -179,14 +173,15 @@ const getFood = async () => {
                 <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
                 <div class="row">
                 <div class="col-12 item-img">
-                <img src=${item.strMealThumb} alt="item image" id="${item.idMeal}img">
+                <img src=${item.strMealThumb} class="meal-img" alt="item image" id="${item.idMeal}img">
                 </div>
                 <div class="col-12 text-center">
                 <p>${item.strMeal}</p>
                 </div>
                 <div class="col-12 d-flex flex-row justify-content-between">
                 <div class="item-like">
-                <img id="${item.idMeal}" src="https://img.icons8.com/material-outlined/24/000000/like--v2.png" />
+                <img id="${item.idMeal}" class="fa-heart" src="https://www.pngmagic.com/product_images/red-heart-png.png" />
+                
                 <span>likes</span>
                 </div>
                 <div>
