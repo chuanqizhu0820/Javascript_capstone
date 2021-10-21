@@ -164,8 +164,8 @@ const getFoodCounter = async () => {
     const itemsCount = json.meals;
     const dishNum = document.querySelector('#dish-num');
     dishNum.textContent = `Dishes (${itemsCount.length})`;
-  })
-}
+  });
+};
 
 const getFood = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
