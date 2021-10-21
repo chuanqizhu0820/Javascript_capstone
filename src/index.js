@@ -51,7 +51,6 @@ const getLike = (id, node) => {
 }
 
 const loadLike = (id, node) => {
-    console.log(node);
     fetch("https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/K5LEyqREMBDZLL96ZFuw/likes")
         .then(response => response.json())
         .then(json => {
@@ -73,12 +72,100 @@ const loadLike = (id, node) => {
         });
 }
 
+const loadComments = (itemId) => {
+    fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/K5LEyqREMBDZLL96ZFuw/comments?item_id=${itemId}`)
+        .then(response => response.json())
+        .then(json => {
+            const commentsDiv = document.querySelector("#comments")
+            let commentsHtml = ""
+            json.forEach((item) => {
+                commentsHtml += `<p>${item.creation_date} by ${item.username} : ${item.comment}`;
+            })
+            commentsDiv.innerHTML = commentsHtml;
+        })
+}
+
+const uploadComment = (obj) => {
+    fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/K5LEyqREMBDZLL96ZFuw/comments`, {
+        method: 'POST',
+        body: JSON.stringify(obj),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+        .then(response => response.json())
+        .then(json => {
+            console.log(json);
+        });
+}
+
+const loadPopupCommentPage = (itemId, popupNode) => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${itemId}`)
+        .then(response => response.json())
+        .then(json => {
+            let meal = json.meals[0];
+            let popupHtml = `
+                <div id="img-comment">
+                <img src="${meal.strMealThumb}" alt="meal-img">
+                <h5>${meal.strMeal}</h5>
+                </div>
+                <div id="info-item-comment">
+                <a href=${meal.strSource} target="_blank">See more about this meal</a>
+                </div>
+                <div id="comments"></div>
+                <div id="form-comment">
+                <form id="comment-form">
+                <div class="form-group mb-3">
+                <input type="text" class="form-control" id="your-name" name="name" placeholder="Your name">
+                </div>
+                <div class="form-group mb-3">
+                <textarea class="form-control" id="your-comments" name="comment" placeholder="Your comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-secondary">Comment</button>
+                </form>
+                <button type="submit" class="btn btn-outline-secondary btn-sm" id="go-back">Go back to menu</button>
+                </div>
+                `;
+            popupNode.innerHTML = popupHtml;
+            loadComments(meal.idMeal);
+
+            const commentForm = document.querySelector("#comment-form");
+            commentForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                let commentObj = {
+                    "item_id": meal.idMeal,
+                    "username": commentForm.name.value,
+                    "comment": commentForm.comment.value
+                }
+                uploadComment(commentObj);
+                commentForm.name.value = "";
+                commentForm.comment.value = "";
+                setTimeout(() => { loadComments(meal.idMeal) }, 1000);
+            })
+
+            const header = document.querySelector("header");
+            const main = document.querySelector("main");
+            const footer = document.querySelector("footer");
+            const popupComment = document.querySelector("#popup-comment");
+
+            const goBack = document.querySelector("#go-back");
+            goBack.addEventListener("click", () => {
+                popupNode.innerHTML = "";
+                header.style.display = "block";
+                main.style.display = "block";
+                footer.style.display = "block";
+                popupComment.style.display = "none";
+            })
+        });
+}
+
 const getFood = async () => {
     const response = await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese");
     response.json().then((json) => {
         let itemArr = json.meals;
+        console.log(json);
         const dishNum = document.querySelector("#dish-num");
-        dishNum.textContent = `Dishes (${itemArr.length})`
+        dishNum.textContent = `Dishes (${itemArr.length})`;
         let itemHtml = '';
         itemArr.forEach(item => {
             itemHtml +=
@@ -97,7 +184,7 @@ const getFood = async () => {
                 <span>likes</span>
                 </div>
                 <div>
-                <button type="button" class="btn btn-outline-secondary btn-sm">Comment</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm comment-btn">Comment</button>
                 </div>
                 </div>
                 </div>
@@ -108,6 +195,7 @@ const getFood = async () => {
         itemConstainer.innerHTML = itemHtml;
 
         const itemLike = document.querySelectorAll(".item-like > img");
+
         itemLike.forEach((item) => {
             let likeNode = item.parentNode.querySelector("span");
             loadLike(item.id, likeNode);
@@ -115,11 +203,35 @@ const getFood = async () => {
                 let likeNode = item.parentNode.querySelector("span");
                 getLike(item.id, likeNode);
             })
+        });
+
+        const header = document.querySelector("header");
+        const main = document.querySelector("main");
+        const footer = document.querySelector("footer");
+        const popupComment = document.querySelector("#popup-comment");
+        const commentBtn = document.querySelectorAll(".comment-btn");
+
+        commentBtn.forEach((item) => {
+            item.addEventListener("click", () => {
+
+                header.style.display = "none";
+                main.style.display = "none";
+                footer.style.display = "none";
+                popupComment.style.display = "block";
+
+                const itemId = item.parentNode.parentNode.querySelector("img").id;
+
+                loadPopupCommentPage(itemId, popupComment);
+            })
         })
+
+
     });
 };
 
 getFood();
+
+
 
 
 
