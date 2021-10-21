@@ -155,6 +155,9 @@ const loadPopupCommentPage = (itemId, popupNode) => {
                 main.style.display = "block";
                 footer.style.display = "block";
                 popupComment.style.display = "none";
+                const aToItem = document.createElement('a');
+                aToItem.href = `#${itemId}img`;
+                aToItem.click();
             })
         });
 }
@@ -173,7 +176,7 @@ const getFood = async () => {
                 <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
                 <div class="row">
                 <div class="col-12 item-img">
-                <img src=${item.strMealThumb} alt="item image">
+                <img src=${item.strMealThumb} alt="item image" id="${item.idMeal}img">
                 </div>
                 <div class="col-12 text-center">
                 <p>${item.strMeal}</p>
