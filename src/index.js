@@ -158,12 +158,22 @@ const loadPopupCommentPage = (itemId, popupNode) => {
     });
 };
 
+const getFoodCounter = async () => {
+  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
+  response.json().then((json) => {
+    const itemsCount = json.meals;
+    const dishNum = document.querySelector('#dish-num');
+    dishNum.textContent = `Dishes (${itemsCount.length})`;
+  })
+
+}
+
+
 const getFood = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
   response.json().then((json) => {
     const itemArr = json.meals;
-    const dishNum = document.querySelector('#dish-num');
-    dishNum.textContent = `Dishes (${itemArr.length})`;
+   
     let itemHtml = '';
     itemArr.forEach((item) => {
       itemHtml
@@ -190,8 +200,8 @@ const getFood = async () => {
                 </div>`;
     });
 
-    const itemConstainer = document.querySelector('#items');
-    itemConstainer.innerHTML = itemHtml;
+    const itemContainer = document.querySelector('#items');
+    itemContainer.innerHTML = itemHtml;
 
     const itemLike = document.querySelectorAll('.item-like > img');
 
@@ -226,3 +236,4 @@ const getFood = async () => {
 };
 
 getFood();
+getFoodCounter();
