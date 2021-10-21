@@ -77,12 +77,17 @@ const loadComments = (itemId) => {
     fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/K5LEyqREMBDZLL96ZFuw/comments?item_id=${itemId}`)
         .then(response => response.json())
         .then(json => {
+            let itemArr = json;
             const commentsDiv = document.querySelector("#comments")
             let commentsHtml = ""
-            json.forEach((item) => {
+            itemArr.forEach((item) => {
                 commentsHtml += `<p>${item.creation_date} by ${item.username} : ${item.comment}`;
             })
             commentsDiv.innerHTML = commentsHtml;
+
+            const commentsHeader = document.querySelector("#comments-header");
+            commentsHeader.textContent = `Comments (${itemArr.length}) By previous Visitors`;
+
         })
 }
 
@@ -115,8 +120,7 @@ const loadPopupCommentPage = (itemId, popupNode) => {
                 <div id="info-item-comment" class="item-info">
                 <a href=${meal.strSource} target="_blank">See more about this meal <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <h4>Comments By previous Visitors</h4>
+                <h4 id="comments-header">Comments By previous Visitors</h4>
                 <div id="comments" class="comments"></div>
                 <div id="form-comment" class="form-comment">
                 <form id="comment-form">
@@ -161,9 +165,9 @@ const loadPopupCommentPage = (itemId, popupNode) => {
                 main.style.filter = "none";
                 footer.style.filter = "none";
                 popupComment.style.display = "none";
-                const aToItem = document.createElement('a');
-                aToItem.href = `#${itemId}img`;
-                aToItem.click();
+                // const aToItem = document.createElement('a');
+                // aToItem.href = `#${itemId}img`;
+                // aToItem.click();
             })
         });
 }
