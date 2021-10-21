@@ -17,7 +17,6 @@ const addLike = async (itemId) => {
     },
   });
   response.json().then((json) => {
-    console.log(json);
   });
 };
 
@@ -91,7 +90,7 @@ const uploadComment = (obj) => {
   })
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
+
     });
 };
 
@@ -163,7 +162,6 @@ const getFood = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
   response.json().then((json) => {
     const itemArr = json.meals;
-    console.log(json);
     const dishNum = document.querySelector('#dish-num');
     dishNum.textContent = `Dishes (${itemArr.length})`;
     let itemHtml = '';
