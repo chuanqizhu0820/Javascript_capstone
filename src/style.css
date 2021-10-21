@@ -8,15 +8,15 @@
 
 header {
   display: flex;
- position: sticky;
- top: 0;
- left: 0%;
- right: 0%;
- bottom: 0%;
- background-color: #780B09;
- color: white;
- justify-content: center;
- z-index: 1;
+  position: sticky;
+  top: 0;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  background-color: #780B09;
+  color: white;
+  justify-content: center;
+  z-index: 1;
 }
 
 p {
@@ -50,16 +50,18 @@ h1 {
   cursor: pointer;
 }
 
-.meal-img:hover,
-.fa-heart:hover {
-  transform: scale(1.07);
-}
-
 .fa-heart {
   color: #780B09;
   height: 20px;
   width: 25px;
 }
+
+.meal-img:hover,
+.fa-heart:hover {
+  transform: scale(1.07);
+}
+
+
 
 .dishes-name {
   font-size: 25px;
@@ -76,8 +78,8 @@ h1 {
 
 .text {
   display: flex;
- align-items: center;
- cursor: pointer;
+  align-items: center;
+  cursor: pointer;
 }
 
 .text p {
@@ -136,7 +138,7 @@ footer {
   justify-content: space-evenly;
   padding-top: 20px;
   background-color: #780B09;
-color: white;
+  color: white;
 }
 
 #popup-comment {
