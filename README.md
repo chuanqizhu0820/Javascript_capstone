@@ -6,16 +6,6 @@
 The JavaScript capstone project (remember what they are?) is about building your own web application based on an external API. You will select an API that provides data about a topic that you like and then build the webapp around it. 
 
 
-## ScreenShots
-
-![image](https://user-images.githubusercontent.com/60612329/138353328-ac6ba1da-8ec3-49b8-8074-af3e01a5e85b.png)
-![image](https://user-images.githubusercontent.com/60612329/138353472-9bf2e8c5-829a-490e-b2b2-1ea8603191a3.png)
-
-
-## Video Recording
-
-## Things done so far:
-
 ### **Student A**
 Chuanqi Zhu
 
@@ -101,6 +91,8 @@ npm run start
 
 ## Screenshot of the page
 
+![image](https://user-images.githubusercontent.com/60612329/138353328-ac6ba1da-8ec3-49b8-8074-af3e01a5e85b.png)
+![image](https://user-images.githubusercontent.com/60612329/138353472-9bf2e8c5-829a-490e-b2b2-1ea8603191a3.png)
 
 ## Video recording Of the Project
 
