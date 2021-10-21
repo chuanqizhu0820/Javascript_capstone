@@ -16,7 +16,7 @@ const addLike = async (itemId) => {
       'Content-type': 'application/json; charset=UTF-8',
     },
   });
-  response.json().then((json) => {
+  response.json().then(() => {
   });
 };
 
@@ -89,7 +89,7 @@ const uploadComment = (obj) => {
     },
   })
     .then((response) => response.json())
-    .then((json) => {
+    .then(() => {
 
     });
 };
@@ -165,15 +165,12 @@ const getFoodCounter = async () => {
     const dishNum = document.querySelector('#dish-num');
     dishNum.textContent = `Dishes (${itemsCount.length})`;
   })
-
 }
-
 
 const getFood = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
   response.json().then((json) => {
     const itemArr = json.meals;
-   
     let itemHtml = '';
     itemArr.forEach((item) => {
       itemHtml
