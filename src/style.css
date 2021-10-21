@@ -61,6 +61,13 @@ h1 {
   width: 25px;
 }
 
+.dishes-name {
+  font-size: 25px;
+  padding: 20px 0;
+  font-weight: 600;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .logo {
   width: 100px;
   height: 100px;

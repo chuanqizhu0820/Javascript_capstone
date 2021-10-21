@@ -184,7 +184,7 @@ const getFood = async () => {
                 <img src=${item.strMealThumb} class="meal-img" alt="item image" id="${item.idMeal}img">
                 </div>
                 <div class="col-12 text-center">
-                <p>${item.strMeal}</p>
+                <p class="dishes-name">${item.strMeal}</p>
                 </div>
                 <div class="col-12 d-flex flex-row justify-content-between">
                 <div class="item-like">
