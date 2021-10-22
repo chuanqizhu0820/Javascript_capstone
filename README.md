@@ -95,6 +95,7 @@ npm run start
 
 ## Video recording Of the Project
 
+[video](https://github.com/chuanqizhu0820/Javascript_capstone/blob/development/capstone%20peer%20project.mp4)
 
 ### Live Version Link
 https://chuanqizhu0820.github.io/Javascript_capstone/dist
