@@ -24,7 +24,7 @@ header {
   right: 0%;
   bottom: 0%;
   color: white;
-  justify-content: center;
+  justify-content: left;
   z-index: 1;
 }
 
@@ -88,7 +88,7 @@ h1 {
 }
 
 .text p {
-  margin: 0 10px;
+  margin: 0 25px;
   border-bottom: 1px solid white;
 }
 
