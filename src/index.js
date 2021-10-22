@@ -64,14 +64,14 @@ const loadLike = (id, node) => {
 };
 
 const commentCounter = () => {
-  const commentsArr = document.querySelectorAll(".comment-item");
+  const commentsArr = document.querySelectorAll('.comment-item');
   const commentsHeader = document.querySelector('#comments-header');
   if (commentsArr) {
     commentsHeader.textContent = `Comments (${commentsArr.length}) by previous visitors`;
   } else {
-    commentsHeader.textContent = `Comments (0) by previous visitors`;
+    commentsHeader.textContent = 'Comments (0) by previous visitors';
   }
-}
+};
 
 const loadComments = (itemId) => {
   fetch(`${baseUri}${appId}/comments?item_id=${itemId}`)
@@ -86,10 +86,9 @@ const loadComments = (itemId) => {
         });
         commentsDiv.innerHTML = commentsHtml;
         commentCounter();
+        return 0;
       }
-      else {
-        return 0
-      }
+      return 0;
     });
 };
 
