@@ -1,4 +1,4 @@
-const commentsCounter = require('../__mocks__/commentsCounter');
+const commentCounter = require('../__mocks__/commentCounter');
 
 test('should have 3 comments', () => {
   const commentArr = [{
@@ -14,10 +14,10 @@ test('should have 3 comments', () => {
     username: 'chuanqi',
     comment: 'good',
   }];
-  expect(commentsCounter(commentArr)).toBe(`Comments (3) by previous visitors`);
+  expect(commentCounter(commentArr)).toBe(`Comments (3) by previous visitors`);
 });
 
 test('should have 0 comments', () => {
   const commentArr = null;
-  expect(commentsCounter(commentArr)).toBe(`Comments (0) by previous visitors`);
+  expect(commentCounter(commentArr)).toBe(`Comments (0) by previous visitors`);
 });

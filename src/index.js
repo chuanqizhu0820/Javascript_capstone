@@ -63,18 +63,14 @@ const loadLike = (id, node) => {
     });
 };
 
-const commentsCounter = async (itemId) => {
-  const response = await fetch(`${baseUri}${appId}/comments?item_id=${itemId}`);
-  response.json().then((json) => {
-    const itemArr = json;
-    const commentsHeader = document.querySelector('#comments-header');
-    if (json) {
-      commentsHeader.textContent = `Comments (${itemArr.length}) By previous Visitors`;
-    } else {
-      commentsHeader.textContent = `Comments (0) By previous Visitors`;
-    }
-
-  });
+const commentCounter = () => {
+  const commentsArr = document.querySelectorAll(".comment-item");
+  const commentsHeader = document.querySelector('#comments-header');
+  if (commentsArr) {
+    commentsHeader.textContent = `Comments (${commentsArr.length}) by previous visitors`;
+  } else {
+    commentsHeader.textContent = `Comments (0) by previous visitors`;
+  }
 }
 
 const loadComments = (itemId) => {
@@ -86,10 +82,10 @@ const loadComments = (itemId) => {
         const commentsDiv = document.querySelector('#comments');
         let commentsHtml = '';
         itemArr.forEach((item) => {
-          commentsHtml += `<p>${item.creation_date} by ${item.username} : ${item.comment}`;
+          commentsHtml += `<p class="comment-item">${item.creation_date} by ${item.username} : ${item.comment}`;
         });
         commentsDiv.innerHTML = commentsHtml;
-        commentsCounter(itemId);
+        commentCounter();
       }
       else {
         return 0
@@ -175,13 +171,10 @@ const loadPopupCommentPage = (itemId, popupNode) => {
     });
 };
 
-const getFoodCounter = async () => {
-  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
-  response.json().then((json) => {
-    const itemsCount = json.meals;
-    const dishNum = document.querySelector('#dish-num');
-    dishNum.textContent = `Dishes (${itemsCount.length})`;
-  });
+const mealCounter = () => {
+  const itemsArr = document.querySelectorAll('.meal-img');
+  const dishNum = document.querySelector('#dish-num');
+  dishNum.textContent = `Dishes (${itemsArr.length})`;
 };
 
 const getFood = async () => {
@@ -217,6 +210,8 @@ const getFood = async () => {
     const itemContainer = document.querySelector('#items');
     itemContainer.innerHTML = itemHtml;
 
+    mealCounter();
+
     const itemLike = document.querySelectorAll('.item-like > img');
 
     itemLike.forEach((item) => {
@@ -250,4 +245,3 @@ const getFood = async () => {
 };
 
 getFood();
-getFoodCounter();

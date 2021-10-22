@@ -1,4 +1,4 @@
-const getFoodCounter = require('../__mocks__/getFoodCounter');
+const getFoodCounter = require('../__mocks__/mealCounter');
 
 test('should return 3 dishes', () => {
   const itemArr = ['food1', 'food2', 'food3'];
