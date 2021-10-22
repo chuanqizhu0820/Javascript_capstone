@@ -111,6 +111,7 @@ const loadPopupCommentPage = (itemId, popupNode) => {
     .then((response) => response.json())
     .then((json) => {
       const meal = json.meals[0];
+      console.log(meal);
       const popupHtml = `
             <div class="container">
             <i class="fas fa-times fa-2x" id="go-back"></i>
@@ -119,6 +120,10 @@ const loadPopupCommentPage = (itemId, popupNode) => {
                 <h5>${meal.strMeal}</h5>
                 </div>
                 <div id="info-item-comment" class="item-info">
+                <ul>
+                <li>Ingredient: ${meal.strIngredient1}, ${meal.strIngredient2}, ${meal.strIngredient3}, ${meal.strIngredient4}, ${meal.strIngredient5} ...</li>
+                <li>Instruction: ${meal.strInstructions}</li>
+                </ul>
                 <a href=${meal.strSource} target="_blank">See more about this meal <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <h4 id="comments-header">Comments By previous Visitors</h4>
