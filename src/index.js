@@ -63,20 +63,37 @@ const loadLike = (id, node) => {
     });
 };
 
+const commentsCounter = async (itemId) => {
+  const response = await fetch(`${baseUri}${appId}/comments?item_id=${itemId}`);
+  response.json().then((json) => {
+    const itemArr = json;
+    const commentsHeader = document.querySelector('#comments-header');
+    if (json) {
+      commentsHeader.textContent = `Comments (${itemArr.length}) By previous Visitors`;
+    } else {
+      commentsHeader.textContent = `Comments (0) By previous Visitors`;
+    }
+
+  });
+}
+
 const loadComments = (itemId) => {
   fetch(`${baseUri}${appId}/comments?item_id=${itemId}`)
     .then((response) => response.json())
     .then((json) => {
-      const itemArr = json;
-      const commentsDiv = document.querySelector('#comments');
-      let commentsHtml = '';
-      itemArr.forEach((item) => {
-        commentsHtml += `<p>${item.creation_date} by ${item.username} : ${item.comment}`;
-      });
-      commentsDiv.innerHTML = commentsHtml;
-
-      const commentsHeader = document.querySelector('#comments-header');
-      commentsHeader.textContent = `Comments (${itemArr.length}) By previous Visitors`;
+      if (json) {
+        const itemArr = json;
+        const commentsDiv = document.querySelector('#comments');
+        let commentsHtml = '';
+        itemArr.forEach((item) => {
+          commentsHtml += `<p>${item.creation_date} by ${item.username} : ${item.comment}`;
+        });
+        commentsDiv.innerHTML = commentsHtml;
+        commentsCounter(itemId);
+      }
+      else {
+        return 0
+      }
     });
 };
 
@@ -174,7 +191,7 @@ const getFood = async () => {
     let itemHtml = '';
     itemArr.forEach((item) => {
       itemHtml
-                += `
+        += `
                 <div class="col-sm-6 col-md-4 col-lg-3 mb-5">
                 <div class="row">
                 <div class="col-12 item-img">
