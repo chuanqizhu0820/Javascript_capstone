@@ -120,10 +120,20 @@ const loadPopupCommentPage = (itemId, popupNode) => {
                 <h5>${meal.strMeal}</h5>
                 </div>
                 <div id="info-item-comment" class="item-info">
+                <div class="ingredient">
+                <h5>Ingredient <i class="fas fa-arrow-down"></i></h5>
                 <ul>
-                <li>Ingredient: ${meal.strIngredient1}, ${meal.strIngredient2}, ${meal.strIngredient3}, ${meal.strIngredient4}, ${meal.strIngredient5} ...</li>
-                <li>Instruction: ${meal.strInstructions}</li>
+                <li>${meal.strIngredient1}</li>
+                <li>${meal.strIngredient2}</li>
+                <li>${meal.strIngredient3}</li>
+                <li>${meal.strIngredient4}</li>
+                <li>${meal.strIngredient5}</li>
                 </ul>
+                </div>
+                <div class="instructions"> 
+                <h5>Instruction <i class="fas fa-note"></i></h5>
+                 <p> ${meal.strInstructions}</p>
+                 </div>
                 <a href=${meal.strSource} target="_blank">See more about this meal <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <h4 id="comments-header">Comments By previous Visitors</h4>
