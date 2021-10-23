@@ -1,0 +1,108 @@
+.container {
+  padding: 20px;
+}
+
+.display {
+  background-color: rgba(150, 104, 104, 0.774);
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 60vw;
+  z-index: 100;
+  border-radius: 40px;
+}
+
+#go-back {
+  float: right;
+  color: white;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+#go-back:hover {
+  transform: rotate(270deg);
+  color: grey;
+}
+
+.img-comment {
+  text-align: center;
+  margin: 30px;
+}
+
+.ingredient ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.ingredient ul li {
+color: white;
+padding: 10px;
+}
+
+.instructions p{
+line-height: 30px;
+font-size: 20px;
+text-align: center;
+color: rgb(253, 253, 253);
+}
+
+.img-comment img {
+  height: 300px;
+  width: 300px;
+  border-radius: 50%;
+}
+
+.exit {
+  cursor: pointer;
+}
+
+.item-info {
+  padding: 10px;
+}
+
+.item-info a {
+  text-decoration: none;
+  color: #7e2928;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.item-info a:hover {
+  font-size: 23px;
+}
+
+h4 {
+  color: white;
+  text-align: center;
+}
+
+.comments {
+  text-align: center;
+  margin: 30px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 15vh;
+}
+
+.form-comment {
+  width: 50%;
+  margin: 0 auto;
+}
+
+h5 {
+  color: #7e2928;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+input {
+  outline: none;
+}
+
+.submit-btn {
+  background-color: white;
+  border: none;
+}
