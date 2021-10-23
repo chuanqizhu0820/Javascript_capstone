@@ -89,8 +89,8 @@ npm run start
 
 
 ## Screenshot of the page
-![image](https://user-images.githubusercontent.com/60612329/138560014-c627c192-ee4a-4df1-b323-a86371eb06cf.png)
-![image](https://user-images.githubusercontent.com/60612329/138560039-89ccf5b0-796e-4222-b0bc-0ab07e1b6fc1.png)
+![image](https://user-images.githubusercontent.com/60612329/138560089-faf65d53-61a1-45f5-914f-ad4739fbd72d.png)
+![image](https://user-images.githubusercontent.com/60612329/138560079-b28ab74d-eadf-44dd-922f-ac7ce12de5e9.png)
 
 
 ## Video recording Of the Project
@@ -99,7 +99,7 @@ npm run start
 
 ### Live Version Link
 
-https://chuanqizhu0820.github.io/Javascript_capstone/dist
+[please click here to view project](https://chuanqizhu0820.github.io/Javascript_capstone/dist)
 
 
 
